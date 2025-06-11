@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🌟 Diet Plan Suggestion</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f8ffae, #43c6ac);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        select, button {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 16px;
+            padding: 15px;
+            background: #f0f8ff;
+            border-left: 5px solid #43c6ac;
+            border-radius: 10px;
+        }
+
+        .emoji {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🥗</div>
+        <h1>Diet Plan Suggestion</h1>
+        <label for="lifestyle">Select your lifestyle:</label>
+        <select id="lifestyle">
+            <option value="none">-- Choose One --</option>
+            <option value="sedentary">Sedentary</option>
+            <option value="active">Active</option>
+            <option value="athlete">Athlete</option>
+        </select>
+        <button onclick="showPlan()">Get Diet Plan</button>
+
+        <div id="result" class="output" style="display:none;"></div>
+    </div>
+
+    <script>
+        function showPlan() {
+            const lifestyle = document.getElementById("lifestyle").value;
+            const result = document.getElementById("result");
+
+            let plan = "";
+
+            switch (lifestyle) {
+                case "sedentary":
+                    plan = "🍎 <strong>Light & Healthy:</strong><br>• Eat fruits, veggies, and lean protein.<br>• Avoid processed food.<br>• Take short walks daily.";
+                    break;
+                case "active":
+                    plan = "🏃 <strong>Balanced Diet:</strong><br>• Include proteins, carbs, and healthy fats.<br>• Drink 2-3L water.<br>• Exercise 3–5 times/week.";
+                    break;
+                case "athlete":
+                    plan = "💪 <strong>High-Performance Diet:</strong><br>• High protein & complex carbs.<br>• Stay hydrated.<br>• Use post-workout recovery meals.";
+                    break;
+                default:
+                    plan = "⚠️ Please select a lifestyle.";
+            }
+
+            result.innerHTML = plan;
+            result.style.display = "block";
+        }
+    </script>
+</body>
+</html>
